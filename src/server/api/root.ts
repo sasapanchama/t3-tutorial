@@ -1,11 +1,14 @@
-import { createTRPCRouter } from '~/server/api/trpc';
- 
+import { createTRPCRouter } from "~/server/api/trpc";
 import { todoRouter } from "~/server/api/routers/todo";
 
-// 定義したルータをサーバのプライマリルーターに渡す。
-const appRouter = createTRPCRouter({
+/**
+ * This is the primary router for your server.
+ *
+ * All routers added in /api/routers should be manually added here.
+ */
+export const appRouter = createTRPCRouter({
   todo: todoRouter,
 });
 
-// API の型定義をエクスポートする
+// export type definition of API
 export type AppRouter = typeof appRouter;
